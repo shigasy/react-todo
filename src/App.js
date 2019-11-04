@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './App.scss'
 import Form from './components/Form'
 import List from './components/List'
@@ -7,6 +7,7 @@ export default function App() {
 
     const [todo, setTodo] = useState([])
 
+    // データ保存
     const handleAdd = (e) => {
         e.preventDefault()
         // todo.push(e.target.title.value) 参照型だから、破壊的操作は更新されない
@@ -16,18 +17,24 @@ export default function App() {
         console.log(todo)
     }
 
+    // データ削除
+    const handleRemove = (i) => {
+        // ----------------
+        todo.splice(i, 1)
+        setTodo(todo.concat()) // todoから削除された新しい配列をsetしている
+        // ----------------
+
+        // ----------------
+        // setTodo(todo.splice(i, 1).concat()) // これは要素数1の配列が返ってきて、setしている
+        // ----------------
+    }
+
     return (
         <div className="siimple-box siimple--bg-dark">
             <h1 className="siimple-box-title siimple--color-white">React Todo App</h1>
             <Form handleAdd={handleAdd}/>
             <div className="siimple-rule"></div>
-            <ul className="siimple-list">
-                {todo.map((todo, i) => {
-                    return <li key={i} className="siimple-list-item siimple--bg-white">{todo} <span
-                        className="siimple-tag siimple-tag--error siimple-hover">Delete</span></li>})
-                }
-                <li className="siimple-list-item siimple--bg-white">aaaa<span className="siimple-tag siimple-tag--error siimple-hover">Delete</span></li>
-            </ul>
+            <List todos={todo} handleRemove={handleRemove}/>
         </div>
 
     );
