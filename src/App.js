@@ -9,14 +9,12 @@ export default function App() {
 
     const handleAdd = (e) => {
         e.preventDefault()
-        todo.push(e.target.title.value)
-        setTodo(todo)
+        // todo.push(e.target.title.value) 参照型だから、破壊的操作は更新されない
+        // setTodo(todo.concat(e.target.title.value))
+        setTodo([...todo, e.target.title.value])
         e.target.title.value = '';
         console.log(todo)
     }
-    useEffect(() => {
-        console.log(todo)
-    });
 
     return (
         <div className="siimple-box siimple--bg-dark">
