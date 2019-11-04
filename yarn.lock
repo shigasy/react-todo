@@ -7793,6 +7793,10 @@ react-error-overlay@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.3.tgz#c378c4b0a21e88b2e159a3e62b2f531fd63bf60d"
 
+react-hook-form@^3.26.4:
+  version "3.26.4"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.26.4.tgz#535c2b8862a4aa899fea454b01480e7e0c3e377f"
+
 react-is@^16.8.1, react-is@^16.8.4:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.11.0.tgz#b85dfecd48ad1ce469ff558a882ca8e8313928fa"
